@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;500;400;600;700;&display=swap');
 
 :root {
     --primary: #032541;
@@ -48,7 +48,8 @@ header {
 }
 
 header a {
-    color: var(--white)
+    color: var(--white);
+    font-weight: 600;
 }
 
 header .inner-content {
@@ -60,7 +61,7 @@ header .inner-content {
 
 header .brand a {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-decoration: none;
     
 }
@@ -78,4 +79,41 @@ header .nav-links li:last-child {
     margin-right: 0;
 }
 
+/* watchlist */
+.watchlist-page h1 {
+    margin: 30px 0;
+    color: var(--primary);
+    font-size: 1.55rem;
+}
+
+/* add */
+.add-page h1 {
+    margin: 20px 0;
+    color: var(--primary);
+    font-size: 1.55rem;
+}
+
+.add-content {
+    padding: 40px 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.add-content .input-wrapper input {
+    width: 100%;
+    color: var(--primary);
+    padding: 10px;
+    border: 2px solid rgb(168, 168, 168);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.add-content .input-wrapper input:focus {
+    outline: none;
+}
+
+.add-content .input-wrapper input:focus-visible {
+    border: 2px solid rgb(102, 102, 102);
+}
 

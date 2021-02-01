@@ -1,6 +1,6 @@
 const Watchlist = () => {
     return (
-        <div>
+        <div className='watchlist-page'>
             <h1>Watchlist Page</h1>
         </div>
     )
