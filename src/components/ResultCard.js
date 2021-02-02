@@ -15,12 +15,15 @@ const ResultCard = ({movie}) => {
                     <div className='header'>
                         <h3 className='title'>{movie.title}</h3>
                         <p className='subinfo'>
-                            Rating: <span className='vote-average'>{movie.vote_average ? movie.vote_average : 
-                            '-'}</span>
+                            Rating: {movie.vote_average ? <span className='subinfo-subtext'>{movie.vote_average}</span> : 
+                            '-'}
                         </p>
                         <p className='subinfo'>
-                            Release year: {movie.release_date ? movie.release_date.substring(0, 4) :
+                            Release year: {movie.release_date ? <span class='subinfo-subtext'>{movie.release_date.substring(0, 4)}</span> :
                             '-'}
+                        </p>
+                        <p className='overview'>
+                            <span className='subinfo'>Overview:</span> {movie.overview ? [movie.overview.length >= 330 ? movie.overview.substring(0, 331) : movie.overview] + '...' : '-'}
                         </p>
                     </div>
                     <div class='controls'>

@@ -151,8 +151,8 @@ header .nav-links li:last-child {
 }
 
 .result-card .poster-wrapper img, .filter-poster {
-    width: 75px;
-    height: 113px;
+    width: 150px;
+    height: 226px;
     background-color: #dbdada;
     border-radius: 5px;
     margin-right: 15px;
@@ -167,19 +167,40 @@ header .nav-links li:last-child {
 }   
 
 .result-card .info .subinfo {
-    font-weight: 500;
+    font-weight: 600;
     font-size:  0.9rem;
     color: var(--primary);
+
 }
 
-.result-card .info .vote-average {
-    font-weight: 700;
-    font-size:  0.95rem;
+.result-card .info .subinfo .subinfo-subtext {
     color: var(--secondary-darker);
+}
 
+.result-card .info .overview {
+    font-weight: 500;
+    margin-top: 20px;
+    font-size:  0.9rem;
+    color: var(--primary);
 }
 
 .controls .btn {
     font-size: 0.7rem;
     margin-right: 10px;
+}
+
+@media (max-width: 553px){
+    .overview {
+        display: none;
+    }
+    
+    .result-card .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }  
+    
+    .btn {
+        margin-top: 10px;
+    }
 }
