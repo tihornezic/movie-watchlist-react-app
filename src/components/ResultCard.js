@@ -1,5 +1,12 @@
+import {useContext} from 'react'
+import {GlobalContext} from '../context/GlobalState'
 
 const ResultCard = ({movie}) => {
+    
+    // grabbing action we created
+    // destructuring 
+    const {addMovieToWatchlist} = useContext(GlobalContext)
+
     return (
         <div>
             <div className='result-card'>
@@ -23,11 +30,11 @@ const ResultCard = ({movie}) => {
                             '-'}
                         </p>
                         <p className='overview'>
-                            <span className='subinfo'>Overview:</span> {movie.overview ? [movie.overview.length >= 330 ? movie.overview.substring(0, 331) : movie.overview] + '...' : '-'}
+                            <span className='subinfo'>Overview:</span> {movie.overview ? [movie.overview.length >= 300 ? movie.overview.substring(0, 301) : movie.overview] + '...' : '-'}
                         </p>
                     </div>
                     <div class='controls'>
-                        <button className='btn'>
+                        <button className='btn' onClick={() => addMovieToWatchlist(movie)}>
                             Add to Watchlist
                         </button>   
                         <button className='btn'>
