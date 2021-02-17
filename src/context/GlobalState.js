@@ -15,9 +15,11 @@ import AppReducer from './AppReducer'
 // initial state (value) - first thing to do while working with context
 const initialState = {
     // array of watchlist movies
-    watchlist: [],
+    // when the application first loads, we want our initial state to take the value of local storage items
+    // if there is anything in localstorage in 'watchlist', turn it back from string to array
+    watchlist: localStorage.getItem('watchlist') ? JSON.parse(localStorage.getItem('watchlist')) : [],
     // array of watched movies
-    watched: []
+    watched: localStorage.getItem('watched') ? JSON.parse(localStorage.getItem('watched')) : []
 }
 
 // create context
@@ -30,6 +32,14 @@ export const GlobalContext = createContext(initialState)
 // provider components
 export const GlobalProvider = props => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
+
+    // triggered whenever the state is changed inside provider
+    useEffect(() => {
+        // local storage has to be a string (currently watchlist is an array)
+        localStorage.setItem('watchlist', JSON.stringify(state.watchlist))
+        localStorage.setItem('watched', JSON.stringify(state.watched))
+        // whenever this changes, useEffect fires off again - dependency array
+    }, [state])
 
     // actions
     const addMovieToWatchlist = movie => {
