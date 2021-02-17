@@ -1,7 +1,7 @@
 const Watched = () => {
     return (
-        <div>
-            <h1>Watched Page</h1>
+        <div className='page-header'>
+            <h1>Watched Movies</h1>
         </div>
     )
 }

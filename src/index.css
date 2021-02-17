@@ -84,12 +84,18 @@ header .nav-links a {
     text-decoration: none;
 }
 
+header .nav-links li:first-of-type a:hover, 
+header .nav-links li:nth-of-type(2) a:hover {
+    color: rgb(207, 207, 207);
+    transition: all 0.5s ease;
+}
+
 header .nav-links li:last-child {
     margin-right: 0;
 }
 
 /* watchlist */
-.watchlist-page h1 {
+.page-header h1 {
     margin: 30px 0;
     color: var(--primary);
     font-size: 1.55rem;
@@ -150,7 +156,7 @@ header .nav-links li:last-child {
     margin: 0;
 }
 
-.result-card .poster-wrapper img, .filter-poster {
+.result-card .poster-wrapper img, .filler-poster {
     width: 150px;
     height: 226px;
     background-color: #dbdada;
@@ -189,6 +195,43 @@ header .nav-links li:last-child {
     margin-right: 10px;
 }
 
+/* movie page */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    margin: 50px 0;
+}
+
+.movie-card {
+    width: 100%;
+    overflow: hidden; 
+    border: 0;
+    display: block;
+    position: relative;
+}
+
+.movie-card img {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+}
+
+.movie-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    transition: all 0.3s ease
+}
+
+.movie-card .overlay:hover {
+    border: 2px solid var(--secondary)
+}
+
+/* results responsive */
 @media (max-width: 553px){
     .overview {
         display: none;
@@ -202,5 +245,34 @@ header .nav-links li:last-child {
     
     .btn {
         margin-top: 10px;
+    }
+}
+
+/* movie page responsive*/
+@media (max-width: 920px) {
+    .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 320px) {
+    .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
     }
 }
