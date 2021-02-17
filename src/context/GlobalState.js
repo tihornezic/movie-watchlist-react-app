@@ -3,6 +3,8 @@
 
 // -useReducer an alternative to useState; accepts a reducer of type (state, action) => newState, 
 // and returns the current state paired with a dispatch method;
+    // -dispatch() is the method used to dispatch actions and trigger state changes to the store
+    // -dispatch means send off to a destination or for a purpose
 // -useReducer is usually preferable to useState when you have complex state logic that involves 
 // multiple sub-values or when the next state depends on the previous one; 
 // -useReducer also lets you optimize performance for components that trigger deep updates because you can pass 
@@ -31,6 +33,7 @@ export const GlobalProvider = props => {
 
     // actions
     const addMovieToWatchlist = movie => {
+        // payload is naming convention for the property that holds the actual data
         dispatch({type: 'ADD_MOVIE_TO_WATCHLIST', payload: movie})
     }
 

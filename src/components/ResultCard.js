@@ -5,7 +5,13 @@ const ResultCard = ({movie}) => {
     
     // grabbing action we created
     // destructuring 
-    const {addMovieToWatchlist} = useContext(GlobalContext)
+    const {addMovieToWatchlist, watchlist} = useContext(GlobalContext)
+
+
+    // search the watchlist if a movie is already there
+    let storedMovie = watchlist.find(object => object.id === movie.id)
+    // if storedMovie is not equal to null, return true; if nothing is returned, return false 
+    const watchlistDisabled = storedMovie ? true : false
 
     return (
         <div>
@@ -34,7 +40,8 @@ const ResultCard = ({movie}) => {
                         </p>
                     </div>
                     <div class='controls'>
-                        <button className='btn' onClick={() => addMovieToWatchlist(movie)}>
+                        <button className='btn' disabled={watchlistDisabled} 
+                        onClick={() => addMovieToWatchlist(movie)}>
                             Add to Watchlist
                         </button>   
                         <button className='btn'>
