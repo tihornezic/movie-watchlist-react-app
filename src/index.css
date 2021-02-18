@@ -297,6 +297,14 @@ header .nav-links li:last-child {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
+    .ctrl-btn {
+        color: #fefefe;
+        background-color: transparent;
+        border: none;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        margin: 0 1px;
+    }
 }
 
 @media (max-width: 650px) {
