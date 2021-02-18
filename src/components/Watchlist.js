@@ -4,6 +4,7 @@ import MovieCard from './MovieCard'
 
 const Watchlist = () => {
     const {watchlist} = useContext(GlobalContext)
+
     return (
         <div>
             <div className='page-header'>
@@ -17,8 +18,8 @@ const Watchlist = () => {
                     ))}
                 </div>
             ) : (
-                <p className='no-movies'>No movies in your list!</p>
-            )}
+                    <p className='no-movies'>No movies in your list!</p>
+                )}
 
         </div>
     )

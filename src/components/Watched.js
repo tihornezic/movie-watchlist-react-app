@@ -1,7 +1,26 @@
+import {useContext} from 'react'
+import {GlobalContext} from '../context/GlobalState'
+import MovieCard from './MovieCard'
+
 const Watched = () => {
+    const {watched} = useContext(GlobalContext)
+
     return (
-        <div className='page-header'>
-            <h1>Watched Movies</h1>
+        <div>
+            <div className='page-header'>
+                <h1>Watched Movies</h1>
+            </div>
+
+            {watched.length > 0 ? (
+                <div className='movie-grid'>
+                    {watched.map(movie => (
+                        <MovieCard movie={movie} type='watched' />
+                    ))}
+                </div>
+            ) : (
+                    <p className='no-movies'>No movies in your list!</p>
+                )}
+
         </div>
     )
 }
