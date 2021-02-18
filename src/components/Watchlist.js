@@ -7,10 +7,12 @@ const Watchlist = () => {
 
     return (
         <div>
-            <div className='page-header'>
-                <h1>My Watchlist</h1>
+            <div className='movie-page-header'>
+                <div className='page-header'>
+                    <h1>My Watchlist</h1>
+                </div>
+                <span className='count-pill'>{watchlist.length} {watchlist.length === 1 ? 'movie' : 'movies'}</span>
             </div>
-
             {watchlist.length > 0 ? (
                 <div className='movie-grid'>
                     {watchlist.map(movie => (

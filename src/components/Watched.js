@@ -7,8 +7,11 @@ const Watched = () => {
 
     return (
         <div>
-            <div className='page-header'>
-                <h1>Watched Movies</h1>
+            <div className='movie-page-header'>
+                <div className='page-header'>
+                    <h1>Watched Movies</h1>
+                </div>
+                <span className='count-pill'>{watched.length} {watched.length === 1 ? 'movie' : 'movies'}</span>
             </div>
 
             {watched.length > 0 ? (
