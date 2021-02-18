@@ -9,11 +9,16 @@ const Watchlist = () => {
             <div className='page-header'>
                 <h1>My Watchlist</h1>
             </div>
-           <div className='movie-grid'>
-                {watchlist.map(movie => (
-                    <MovieCard movie={movie} type='watchlist'/>
-                ))}
-           </div>
+
+            {watchlist.length > 0 ? (
+                <div className='movie-grid'>
+                    {watchlist.map(movie => (
+                        <MovieCard movie={movie} type='watchlist' />
+                    ))}
+                </div>
+            ) : (
+                <p className='no-movies'>No movies in your list!</p>
+            )}
 
         </div>
     )
