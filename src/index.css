@@ -304,6 +304,24 @@ header .nav-links li:last-child {
     outline: none;
 }
 
+.modal-ctrl-btn {
+    color: var(--primary);
+    background-color: transparent;
+    border: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    margin: 0 5px;
+}
+
+.modal-ctrl-btn:hover {
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+.modal-ctrl-btn:focus {
+    outline: none;
+}
+
 /* results responsive */
 @media (max-width: 553px){
     .overview {

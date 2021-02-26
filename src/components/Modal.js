@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import {MdClose} from 'react-icons/md'
 import {useSpring, animated} from 'react-spring'
 import {useRef, useEffect, useCallback} from 'react'
+import ModalMovieControls from './ModalMovieControls'
 
 const Background = styled.div`
     position: fixed;
@@ -15,6 +16,7 @@ const Background = styled.div`
 
 const ModalContent = styled.div`
     display: flex;
+    justify-content: space-around;
     color: var(--primary);
 `
 
@@ -22,6 +24,7 @@ const MovieInfo = styled.div`
     padding: 0px 30px;
 
     h3 {
+        display: inline-block;
         margin-bottom: 20px;
         font-size: 1.6rem;
     }
@@ -37,9 +40,10 @@ const MovieInfo = styled.div`
     }
 `
 
-const CloseModalButton = styled(MdClose)`
+const CloseModalButton = styled.div`
     cursor: pointer;
     position: absolute;
+    font-size: 1.45rem;
     top: 20px;
     right: 20px;
     width: 32px;
@@ -49,7 +53,18 @@ const CloseModalButton = styled(MdClose)`
     color: var(--primary);
 `
 
-const Modal = ({showModal, setShowModal, movie}) => {
+const ModalMovieControlsDiv = styled.div`
+    display: inline;
+    // background: rgba(0, 0, 0, 0.8);
+    // padding: 5px 5px;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin: 10px;
+    color: #032541;
+`
+
+const Modal = ({showModal, setShowModal, movie, type}) => {
     // to close modal by clicking outside of it
     const modalRef = useRef()
 
@@ -102,6 +117,9 @@ const Modal = ({showModal, setShowModal, movie}) => {
                                 alt={`${movie.title}Poster`} />
                             <MovieInfo>
                                 <h3>{movie.title}</h3>
+                                <ModalMovieControlsDiv>
+                                    <ModalMovieControls setShowModal={setShowModal} movie={movie} type={type} />
+                                </ModalMovieControlsDiv>
                                 <p>
                                     Rating: {movie.vote_average ? <span>{movie.vote_average}</span> :
                                         '-'}
@@ -122,7 +140,9 @@ const Modal = ({showModal, setShowModal, movie}) => {
                                 <p>{movie.overview ? <p>{movie.overview}</p> : '-'}</p>
                             </MovieInfo>
                         </ModalContent>
-                        <CloseModalButton aria-label='Close modal' onClick={() => setShowModal(prev => !prev)} />
+                        <CloseModalButton onClick={() => setShowModal(prev => !prev)}>
+                            <i className='fa-fw fa fa-times'></i>
+                        </CloseModalButton>
                     </animated.div>
                 </Background>
             ) : null}
