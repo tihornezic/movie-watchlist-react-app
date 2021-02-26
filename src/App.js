@@ -12,20 +12,22 @@ function App() {
     <GlobalProvider>
       <div>
         <Router>
-          <Header />
-          <div className='container'>
-            <Switch>
-              {/* home route */}
-              <Route exact path='/'>
-                <Watchlist />
-              </Route>
-              <Route path='/watched'>
-                <Watched />
-              </Route>
-              <Route path='/add'>
-                <Add />
-              </Route>
-            </Switch>
+          <div className='grey-background'>
+            <Header />
+            <div className='container'>
+              <Switch>
+                {/* home route */}
+                <Route exact path='/'>
+                  <Watchlist />
+                </Route>
+                <Route path='/watched'>
+                  <Watched />
+                </Route>
+                <Route path='/add'>
+                  <Add />
+                </Route>
+              </Switch>
+            </div>
           </div>
         </Router>
       </div>

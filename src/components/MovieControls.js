@@ -3,7 +3,7 @@ import {useContext} from 'react'
 import {GlobalContext} from '../context/GlobalState'
 import {toast, toastify} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
+    
 toast.configure()
 
 const MovieControls = ({movie, type}) => {
